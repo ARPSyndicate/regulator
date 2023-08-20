@@ -15,7 +15,6 @@ from dank.DankGenerator import DankGenerator
 
 
 MEMO = {}
-LOGFILE_NAME = 'logs/regulator.log'
 DNS_CHARS = string.ascii_lowercase + string.digits + '._-'
 
 
@@ -190,7 +189,7 @@ def sort_and_unique(file_name: str):
 def main():
   global DNS_CHARS, MEMO
 
-  logging.basicConfig(format='%(asctime)-15s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO, filename=LOGFILE_NAME, filemode='a')
+  logging.basicConfig(format='%(asctime)-15s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
   parser = argparse.ArgumentParser(description='DNS Regulator')
   parser.add_argument('-th', '--threshold', required=False, type=int, default=500, help='Threshold to start performing ratio test')
   parser.add_argument('-mr', '--max-ratio', required=False, type=float, default=25.0, help='Ratio test parameter R: len(Synth)/len(Obs) < R')
